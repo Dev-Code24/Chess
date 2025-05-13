@@ -1,0 +1,7 @@
+<div class="nav-panel-component" [style]="styleClass()" (mouseenter)="onMouseEnterOrLeave()" (mouseleave)="onMouseEnterOrLeave()" >
+   @for (btn of navPanelButtonLinks(); track btn.title) {
+      <app-button-link [href]="btn.href" moreClasses="sprite {{btn.classes.join(' ')}}" >
+         <div class="btn-label"> {{ btn.title }}</div>
+      </app-button-link>
+   }
+</div>

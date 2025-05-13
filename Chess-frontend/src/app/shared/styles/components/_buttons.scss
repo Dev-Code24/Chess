@@ -1,0 +1,320 @@
+@use "../abstracts" as *;
+
+.sprite {
+   &::before {
+      background-image: url("/images/navsprite.png");
+      content: "";
+      display: block;
+      background-size: 15.4rem 180.4rem;
+      flex-shrink: 0;
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-inline-end: 1rem;
+   }
+
+   // sidenavlink-icons
+   &.play-top::before {
+      background-position: -2.1rem -7.8rem;
+   }
+
+   $sidenav-link-icons: (
+      puzzles-top: -11.4rem,
+      lessons-top: -15.15rem,
+      watch-top: -18.75rem,
+      news-top: -33.75rem,
+      social-top: -22.65rem,
+   );
+
+   @each $class, $y-pos in $sidenav-link-icons {
+      &.#{$class}::before {
+         background-position: -2.3rem #{$y-pos};
+      }
+   }
+
+   // sidenav-link-panel-icons
+   $sidenav-link-panel-icons: (
+      play-panel-top: 123.1rem,
+      play-bots-top: -6.6rem,
+      tournaments-top: -8.8rem,
+      player-variants-top: 41.9rem,
+      leaderboard-top: 99rem,
+
+      puzzles-panel-top: 11rem,
+      puzzles-rush-top: 59.4rem,
+      puzzles-battle-top: 50.5rem,
+      daily-puzzle-top: 103.3rem,
+      custom-puzzle-top: 26.4rem,
+
+      courses-top: 26.4rem,
+      openings-top: -24.2rem,
+      lessons-panel-top: -15.15rem,
+      lesson-library-top: 6.6rem,
+      analysis-top: -26.4rem,
+      classroom-top: 30.9rem,
+      insights-top: 28.6rem,
+      endgames-top: 35.1rem,
+      practise-top: 32.9rem,
+      aimchess-training-top: 15.4rem,
+   );
+
+   @each $class, $y-pos in $sidenav-link-panel-icons {
+      &.#{$class}::before {
+         background-position: 31.5rem #{$y-pos};
+         height: 2.2rem !important;
+      }
+   }
+}
+
+#sb {
+   & .chess-logo {
+      margin-top: 0.4rem;
+      height: 5rem;
+      display: flex;
+      padding-left: 1.1rem;
+
+      &::before {
+         height: 3.7rem;
+         background-position: -2.3rem -3.7rem;
+         width: 2.7rem;
+         margin-right: auto;
+         margin-inline-end: auto;
+
+         @include respond(xl) {
+            width: 12rem;
+            background-position: -2.3rem 0;
+         }
+      }
+
+      @media  screen and (max-width: 960px)  {
+         &.home-top::before {
+            background-position: .2rem -55.1rem;
+            height: 2.05rem;
+            margin-right: 1rem;
+            width: 3rem;
+         }
+      }
+   }
+
+   & .nav-top-menu {
+      width: 100%;
+
+      & > app-button-link > .button-link > .btn-label {
+         display: block;
+
+         @include respond(lg) {
+            display: none;
+         }
+
+         @include respond(xl) {
+            display: block;
+         }
+      }
+   }
+}
+
+.nav-top-menu {
+   font-size: 1.6rem;
+
+   & .button-link {
+      font-weight: 700;
+      color: $color-transparent-white-85;
+   }
+
+   & app-button-link:not(:first-of-type) .sprite.button-link {
+      padding: 0.8rem 0 0.8rem 1rem;
+   }
+
+   & app-button-link:not(:first-of-type) .sprite.button-link::before {
+      height: 3rem;
+      width: 3rem;
+   }
+
+   & app-button-link:hover .button-link.sprite {
+      background-color: rgba(0, 0, 10, 0.14);
+      color: #fff;
+   }
+}
+
+.auth.button-link {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: $color-transparent-white-85;
+   margin: 1rem 0.5rem 0;
+   padding: 0;
+   border-radius: 0.5rem;
+   box-shadow: unset;
+   transition-duration: 0.1s;
+   transition-timing-function: ease-out;
+   transition-property: box-shadow, background-color, color;
+   word-break: break-word;
+   font-weight: 500;
+   font-size: 1.4rem;
+
+   @include respond(lg) {
+      padding: 0 0.5rem 0 0.5rem;
+   }
+
+   @include respond(xl) {
+      margin: 1rem;
+   }
+
+   & .auth-btn-icon {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+
+      & path {
+         fill: currentColor;
+      }
+
+      @include respond(lg) {
+         display: flex;
+      }
+
+      @include respond(xl) {
+         display: none;
+      }
+   }
+
+   &.primary {
+      background-color: $color-green-300;
+      box-shadow: inset 0 -0.4rem 2.4rem transparent,
+         inset 0 -0.1rem 0 0 $color-green-500;
+      border-bottom: $color-green-500;
+
+      &:hover {
+         background-color: #a3d160;
+         box-shadow: inset 0 -0.4rem 2.4rem rgba(0, 0, 0, 0.04),
+            inset 0 -0.1rem 0 0 $color-green-400;
+         border-bottom: $color-green-400;
+      }
+   }
+
+   &.secondary {
+      background-color: $color-transparent-white-10;
+      box-shadow: inset 0 -0.4rem 2.4rem transparent,
+         inset 0 -0.1rem 0 0 $color-transparent-black-10;
+      border-bottom: $color-green-500;
+
+      &:hover {
+         background-color: $color-transparent-white-14;
+         box-shadow: inset 0 -0.4rem 2.4rem rgba(0, 0, 0, 0.04),
+            inset 0 -0.1rem 0 0 $color-transparent-black-14;
+         border-bottom: $color-green-400;
+      }
+   }
+}
+
+#sb {
+   & .auth-btn-label {
+      display: block;
+
+      @include respond(lg) {
+         display: none;
+      }
+
+      @include respond(xl) {
+         display: block;
+      }
+   }
+}
+
+.nav-panel-component {
+   .button-link {
+      width: 100%;
+      font-weight: 500;
+   }
+
+   .sprite {
+      padding: 0.8rem 0 0.8rem 1.2rem;
+      margin: 0.5rem;
+
+      &::before {
+         height: 3rem;
+         width: 3rem;
+      }
+   }
+}
+
+#sb {
+   & .nav-action {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      color: inherit;
+      font-size: 2.8rem;
+      font-weight: 600;
+      gap: 0.8rem;
+      margin: 0;
+      overflow: hidden;
+      padding-left: 1.2rem;
+      position: relative;
+      text-align: left;
+      cursor: pointer;
+      flex-shrink: 0;
+      height: 4rem;
+      width: 100%;
+
+      & .x {
+         margin-right: 0.7rem;
+         display: inline-block;
+         font-family: "ChessGlyph";
+         font-weight: 400;
+         line-height: 1;
+         text-align: center;
+         text-transform: none;
+
+         &::before {
+            content: "\0042";
+         }
+      }
+
+      @include respond(lg) {
+         display: none;
+      }
+   }
+}
+
+#tb {
+   & .hamburger {
+      font-size: 3.2rem;
+      display: inline-block;
+      font-family: "ChessGlyph";
+      font-weight: 400;
+      line-height: 1;
+      text-align: center;
+      text-transform: none;
+      color: $color-transparent-white-50;
+      cursor: pointer;
+      width: 4rem;
+
+      &::before {
+         content: "\0074";
+      }
+   }
+
+   & .chess-logo {
+      margin-top: 0;
+      height: 5rem;
+      display: flex;
+
+      &::before {
+         height: 3.75rem;
+         width: 13.1rem;
+         background-position: -2.3rem 0.3rem;
+         margin-right: auto;
+         margin-inline-end: auto;
+      }
+   }
+
+   & .auth.button-link {
+      padding: 0 1rem;
+      min-width: 6rem;
+      margin: 0;
+      min-height: 3.2rem;
+      border-radius: 0.3rem;
+   }
+}

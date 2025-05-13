@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'shared/styles/components' as *;
+@use 'shared/styles/abstracts' as *;
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+html {
+   font-size: 62.5%;
+}
+body {
+   background-color: $color-gray-800;
+   font-family: $font-family-system;
+   font-size: 1.4rem;
+   line-height: 1.43;
+   margin: 0;
+   padding: 0;
+}
