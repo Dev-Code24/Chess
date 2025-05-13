@@ -1,0 +1,16 @@
+@use 'shared/styles/abstracts' as *;
+
+.base-container {
+   position: relative;
+   width: 100dvw;
+
+   @include respond(lg) {
+      width: calc(100dvw - 5rem);
+      left: 5rem;
+   }
+
+   @include respond(xl) {
+      width: calc(100dvw - 14.5rem);
+      left: 14.5rem;
+   }
+}
