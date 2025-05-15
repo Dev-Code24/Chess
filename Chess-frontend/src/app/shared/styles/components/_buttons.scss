@@ -98,7 +98,7 @@
    & .nav-top-menu {
       width: 100%;
 
-      & > app-button-link > .button-link > .btn-label {
+      & > app-button-link > .button-link:not(.chess-logo) > .btn-label {
          display: block;
 
          @include respond(lg) {
@@ -109,31 +109,40 @@
             display: block;
          }
       }
+
+      & > app-button-link > .button-link.chess-logo > .btn-label {
+         display: block;
+
+         @include respond(lg) {
+            display: none;
+         }
+      }
+   }
+
+   .nav-top-menu {
+      font-size: 1.6rem;
+
+      & .button-link {
+         font-weight: 700;
+         color: $color-transparent-white-85;
+      }
+
+      & app-button-link:not(:first-of-type) .sprite.button-link {
+         padding: 0.8rem 0 0.8rem 1rem;
+      }
+
+      & app-button-link:not(:first-of-type) .sprite.button-link::before {
+         height: 3rem;
+         width: 3rem;
+      }
+
+      & app-button-link:hover .button-link.sprite {
+         background-color: rgba(0, 0, 10, 0.14);
+         color: #fff;
+      }
    }
 }
 
-.nav-top-menu {
-   font-size: 1.6rem;
-
-   & .button-link {
-      font-weight: 700;
-      color: $color-transparent-white-85;
-   }
-
-   & app-button-link:not(:first-of-type) .sprite.button-link {
-      padding: 0.8rem 0 0.8rem 1rem;
-   }
-
-   & app-button-link:not(:first-of-type) .sprite.button-link::before {
-      height: 3rem;
-      width: 3rem;
-   }
-
-   & app-button-link:hover .button-link.sprite {
-      background-color: rgba(0, 0, 10, 0.14);
-      color: #fff;
-   }
-}
 
 .auth.button-link {
    display: flex;

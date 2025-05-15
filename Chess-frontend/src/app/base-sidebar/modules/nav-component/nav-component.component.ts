@@ -49,7 +49,7 @@ export class SidebarNavComponent implements AfterViewInit, OnDestroy {
    private toggleSidebar(isOpen: boolean, width: number): void {
       const sidebar = this.sbRef.nativeElement;
       if (sidebar) {
-         sidebar.style.display = (width < 960 && isOpen) ? 'flex' : 'none';
+         sidebar.style.display = width < 960 ? isOpen ? 'flex' : 'none' : 'flex';
       }
    }
    protected onButtonHover(event: boolean, title: string): void {
